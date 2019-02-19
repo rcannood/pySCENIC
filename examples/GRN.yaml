@@ -1,0 +1,19 @@
+function:
+    name: GRNinference
+    command: pyscenic
+    arguments:
+        - grn
+        - /data/nf/scenic/input/expr_mat.tsv
+        - /data/nf/scenic/input/allTFs_hg38.txt
+    parameters:
+        - name: num_workers
+          value: 6
+        - name: method
+          value: grnboost2
+        - name: cell_id_attribute
+          value: CellID
+        - name: gene_attribute
+          value: Gene
+        - name: output
+          value: /data/nf/scenic/output/adj.tsv
+

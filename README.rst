@@ -1,3 +1,35 @@
+FORK
+====
+
+The original `README.rst` can be found below.
+
+This fork leverages Portash_ and OpenFaas' watchdog_ in the container.
+
+.. _Portash: https://github.com/data-intuitive/Portash
+.. _watchdog: https://github.com/openfaas/faas/tree/master/watchdog
+
+It's easy to build locally. I put the reference data under `/data/nf/scenic/input`, but yours can be in a different place. As long as you update the input provided to the container.
+
+Running the container as a service:
+
+::
+
+   docker run -i -p 8080:8080 -v /data:/data <container>
+
+Running a query:
+
+::
+
+   cat examples/GRN.yaml | http localhost:8080
+
+Running the container in batch:
+
+::
+
+   cat examples/GRN.yaml | docker run -i -v /data:/data pyscenic:tv porta.sh
+
+The latter is ideally suited for use in a pipeline.
+
 pySCENIC
 ========
 
